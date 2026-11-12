@@ -1,0 +1,26 @@
+name: Validate FIT4112 Lab 3
+
+on:
+  push:
+  pull_request:
+  workflow_dispatch:
+
+jobs:
+  lab-check:
+    runs-on: ubuntu-latest
+    timeout-minutes: 15
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+      - name: Set up Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: '3.11'
+      - name: Install requirements
+        run: |
+          python -m pip install --upgrade pip
+          python -m pip install -r requirements.txt
+      - name: Smoke test RFM and K-Means
+        run: python tests/smoke_test.py
+      - name: Execute all student notebooks
+        run: python tests/run_notebooks.py
