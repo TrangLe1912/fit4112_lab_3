@@ -19,13 +19,15 @@ Sau Lab 3, sinh viên có thể:
 
 **Không bắt buộc:** viết thuật toán K-Means từ đầu, dashboard Streamlit, phân cụm từ vector luật kết hợp, thử nhiều thuật toán, báo cáo dài.
 
-## 2. Ba notebook chính
+## 2. Ba notebook chính và một notebook tự chọn
 
 | Thứ tự | Notebook | Nội dung |
 |---|---|---|
 | 01 | [Customer Feature Engineering](notebooks/01_customer_features.ipynb) | Đọc/lọc giao dịch, tính RFM, xuất bảng khách hàng |
 | 02 | [K-Means Clustering](notebooks/02_kmeans_clustering.ipynb) | Chuẩn hóa, chọn k, fit K-Means, đánh giá silhouette |
 | 03 | [Customer Segmentation Insights](notebooks/03_customer_insights.ipynb) | Thống kê cụm, đặt tên, diễn giải và đề xuất |
+
+**Mở rộng tự chọn:** [Notebook 04 – Rule-based Customer Clustering](notebooks/04_rule_based_clustering_optional.ipynb) tái sử dụng ý tưởng của [shop_cluster](https://github.com/TrangLe1912/shop_cluster) với tối đa 8 cặp sản phẩm; so sánh RFM và RFM + các đặc trưng đồng mua trong **cùng hóa đơn**. Notebook 04 không thuộc rubric bắt buộc.
 
 Chạy **01 → 02 → 03** trong Jupyter hoặc VS Code. Nếu Notebook 01 còn khó, có thể bắt đầu từ bảng RFM mẫu đã chuẩn bị sẵn trong `data/starter/` để học Notebook 02–03; sau đó quay lại hoàn thiện Notebook 01.
 
@@ -60,7 +62,7 @@ python -m pip install -r requirements.txt
 jupyter lab
 ```
 
-Trong JupyterLab hoặc VS Code (có Jupyter extension), mở lần lượt 3 notebook và **Run All** hoặc chạy từng cell. Đường dẫn được thiết kế chạy cả khi notebook mở từ thư mục `notebooks/` hoặc thư mục gốc repo.
+Trong JupyterLab hoặc VS Code (có Jupyter extension), mở lần lượt 3 notebook bắt buộc và **Run All** hoặc chạy từng cell. Có thể chạy thêm Notebook 04 sau Notebook 02. Đường dẫn được thiết kế chạy cả khi notebook mở từ thư mục `notebooks/` hoặc thư mục gốc repo.
 
 ## 5. Dữ liệu và đầu ra
 
@@ -75,7 +77,8 @@ fit4112_lab_3/
 ├── notebooks/
 │   ├── 01_customer_features.ipynb
 │   ├── 02_kmeans_clustering.ipynb
-│   └── 03_customer_insights.ipynb
+│   ├── 03_customer_insights.ipynb
+│   └── 04_rule_based_clustering_optional.ipynb   # tự chọn
 ├── docs/
 │   ├── TRACKS.md
 │   ├── LAB03_STUDENT.md
@@ -94,6 +97,11 @@ Các notebook sinh tệp tại `data/processed/` (được gitignore):
 - `customer_segments.csv` – RFM gốc + nhãn cụm.
 - `clustering_scores.csv` – chỉ số các cấu hình thử nghiệm.
 - `segment_profiles.csv` – mô tả từng cụm.
+- `top_products_by_segment.csv` – top ba sản phẩm theo số hóa đơn ở mỗi cụm.
+- `selected_model.json` – cấu hình K-Means được chọn để chạy notebook mở rộng.
+- Khi chạy Notebook 04: `optional_selected_pairs.csv`, `optional_rule_based_clusters.csv`, `optional_augmented_profiles.csv`.
+
+Dữ liệu giả lập đã được điều chỉnh để **các nhóm khách hàng có xu hướng mua nhóm sản phẩm khác nhau** trong khi giữ nguyên giá trị RFM. Notebook 03 có mục đếm *số hóa đơn chứa sản phẩm* theo từng cụm, kết nối kết quả Lab 1–2; phần này là hướng dẫn bổ sung, không tăng tải chấm điểm bắt buộc.
 
 Có thể dùng dữ liệu thật sau khi nắm chắc quy trình; cần tuân thủ quy định quyền truy cập và bảo vệ dữ liệu khách hàng.
 
@@ -119,7 +127,7 @@ python tests/smoke_test.py
 python tests/run_notebooks.py
 ```
 
-Lệnh thứ hai sẽ chạy cả 3 notebook theo thứ tự (chế độ Foundation mặc định) và báo lỗi nếu một cell thất bại. GitHub Actions cũng có workflow kiểm tra khi push.
+Lệnh thứ hai sẽ chạy 3 notebook bắt buộc theo thứ tự (Foundation mặc định), sau đó chạy cả Notebook 04 tự chọn; báo lỗi nếu một cell thất bại. GitHub Actions cũng có workflow kiểm tra khi push.
 
 ## 8. Lỗi thường gặp
 
