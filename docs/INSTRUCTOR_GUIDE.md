@@ -26,6 +26,7 @@ Trong 25 phút đầu, người học PTPM có thể khảo sát dữ liệu và
 3. `python tests/run_notebooks.py`
 4. Mở từng notebook kiểm tra biểu đồ, đường dẫn và câu hỏi tiếng Việt.
 5. Thử đổi `TRACK = "APPLIED"` trong Notebook 02, xác nhận có bảng hai cấu hình và xuất được customer_segments.csv.
+6. Kiểm tra Notebook 03 ghi `top_products_by_segment.csv` và Notebook 04 chạy được khi dùng đúng `selected_model.json`.
 
 ## Giảng viên cần quan sát
 
@@ -46,6 +47,14 @@ Trong 25 phút đầu, người học PTPM có thể khảo sát dữ liệu và
 | Phân tích | Tên cụm + 2 hành động | Cùng đầu ra, nêu lý do lựa chọn phương pháp |
 
 Không cộng điểm đặc quyền cho Applied; không trừ điểm Foundation vì không thử thêm cấu hình.
+
+## Cập nhật từ shop_cluster (Lab 3 cũ)
+
+- Notebook 03 phân tích **top 3 sản phẩm theo số hóa đơn trong từng cụm**. Đây là cầu nối trực tiếp sang ý tưởng mua cùng nhau ở Lab 1–2.
+- Notebook 04 tự chọn rút gọn từ [shop_cluster](https://github.com/TrangLe1912/shop_cluster), chỉ khai phá một số **cặp sản phẩm không trùng**, không dùng 200 luật và không nhân trọng số lift tùy tiện.
+- Đặc trưng pair chỉ bật khi **cả hai sản phẩm xuất hiện cùng một hóa đơn** của khách, tránh nhầm hành vi mua khác lần với đồng mua.
+- So sánh nhãn phân cụm bằng ARI và profile. Không đối chiếu silhouette từ các không gian đặc trưng khác nhau để kết luận mô hình nâng cấp tốt hơn.
+- Dữ liệu demo cập nhật tên/SKU theo nhóm sở thích mà **không thay Quantity, UnitPrice, InvoiceDate, CustomerID hoặc InvoiceNo**, giữ RFM tái lập.
 
 ## Tiếp nối Lab 1–2
 
