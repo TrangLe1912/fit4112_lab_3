@@ -66,6 +66,10 @@
 - `LAB03_REPORT.md` hoặc PDF theo [mẫu](REPORT_TEMPLATE.md), tối đa 2 trang.
 - Có thể nộp repository GitHub cá nhân; **không commit** thư mục môi trường, cache hoặc dữ liệu khách hàng thật.
 
-## 5. Nâng cao (không bắt buộc)
+## 5. Liên kết Lab 1–2 và mở rộng (không bắt buộc)
 
-Thêm đặc trưng sản phẩm hoặc luật kết hợp từ Lab 1–2 và phân tích thay đổi chất lượng cụm. Không tính là điều kiện để đạt điểm tối đa.
+Trong Notebook 03 có phần tự quan sát **3 sản phẩm phổ biến nhất theo số hóa đơn trong từng cụm**. Hãy so sánh hai cụm và giải thích vì sao sản phẩm phổ biến chưa chắc là đặc trưng riêng cho một nhóm.
+
+Nếu muốn tìm hiểu thêm, chạy [Notebook 04 – Rule-based Clustering](../notebooks/04_rule_based_clustering_optional.ipynb). Bạn sẽ xây dựng các đặc trưng đồng mua sản phẩm từ luật Apriori và so sánh K-Means dựa trên RFM với K-Means dựa trên RFM + Rule Features. Không cần Papermill hoặc chạy lại Lab 1–2.
+
+**Notebook 04 không tính là điều kiện để đạt tối đa 100 điểm.**
