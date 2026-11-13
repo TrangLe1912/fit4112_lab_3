@@ -34,6 +34,10 @@ Lab 3 áp dụng **dạy học phân hóa**. Người học có thể tự chọ
 - Bạn học giỏi thuộc HTTT có thể chọn Applied, và PTPM muốn củng cố có thể chọn Foundation.
 - **Không chấm theo silhouette cao nhất một cách máy móc.** Giá trị kinh doanh và khả năng diễn giải cũng quan trọng.
 
+## Liên kết dữ liệu sản phẩm (gợi ý chung cho cả hai lộ trình)
+
+Trong Notebook 03, học viên có thể xem **3 sản phẩm xuất hiện ở nhiều hóa đơn nhất** trong mỗi cụm. Khuyến khích đặt câu hỏi: top sản phẩm có khác nhau giữa các cụm không, và có căn cứ nào để đề xuất combo không? Phần này **không làm phát sinh điểm bắt buộc mới**.
+
 ## Nâng cao tự chọn
 
-Ghép đặc trưng hành vi mua sản phẩm hoặc luật kết hợp từ Lab 1–2 vào RFM và đánh giá liệu khả năng giải thích phân khúc có cải thiện không. Đây **không phải** yêu cầu để đạt điểm tối đa.
+Mở [Notebook 04 – Rule-based Customer Clustering](../notebooks/04_rule_based_clustering_optional.ipynb): khai phá luật Apriori cấp hóa đơn, chọn tối đa 8 cặp sản phẩm không trùng, xây dựng Customer × Pair theo việc có mua **cùng một hóa đơn**, rồi thử RFM + Rule Features. So sánh nhãn với RFM baseline bằng **Adjusted Rand Index (ARI)** và profile, không kết luận “tốt hơn” chỉ dựa vào silhouette từ hai không gian đặc trưng khác nhau. Đây **không phải** yêu cầu để đạt điểm tối đa.
