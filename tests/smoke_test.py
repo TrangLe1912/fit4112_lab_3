@@ -77,6 +77,22 @@ def main():
         assert len(set(labels)) == k
         print(f"PASS: k={k} | silhouette={score:.3f}")
 
+    # Product preferences must be distinctive enough for the extension, while RFM stays identical.
+    profiles = clean.merge(
+        pd.DataFrame({
+            "CustomerID": actual["CustomerID"],
+            "Group": (actual["CustomerID"].astype(int) - 10001) // 24,
+        }), on="CustomerID", validate="many_to_one"
+    )
+    popular = (
+        profiles.groupby(["Group", "Description"])["InvoiceNo"].nunique()
+        .reset_index(name="n_invoices")
+    )
+    top = popular.sort_values(
+        ["Group", "n_invoices"], ascending=[True, False]
+    ).groupby("Group").head(3)
+    assert top["Description"].nunique() >= 5, "Sản phẩm top chưa phân hóa giữa các nhóm demo"
+    print("PASS: demo có sở thích sản phẩm khác biệt giữa các nhóm")
     print("PASS: dữ liệu và K-Means đạt kiểm tra cơ bản")
 
 
